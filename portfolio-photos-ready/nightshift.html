@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="NightShift — an asymmetric two-player cooperative horror game. Game design portfolio case study." name="description"/>
+<title>NightShift — Game Design Portfolio</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    :root { --bg:#0c0d0e; --panel:#131518; --line:#303137; --muted:#a0a1a6; --text:#f2f0eb; --accent:#e9bd65; --soft:#d1d0d0; }
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--text);font-family:'DM Sans',Arial,sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none} a:focus-visible{outline:2px solid var(--accent);outline-offset:4px} button{font:inherit}
+    .page{max-width:1450px;margin:auto;padding:0 6.2% 100px}
+    .topbar{display:flex;align-items:center;justify-content:space-between;height:90px;border-bottom:1px solid #222428}
+    .brand{font-family:'Space Grotesk',Arial,sans-serif;font-weight:700;letter-spacing:-.035em;font-size:20px}
+    .topbar nav{display:flex;gap:34px;color:#b6b6b9;font-size:13px}.topbar nav a:hover{color:var(--accent)}
+    .eyebrow{color:var(--accent);font-size:11px;letter-spacing:.23em;font-weight:700;text-transform:uppercase}
+    .hero{padding:82px 0 56px;border-bottom:1px solid var(--line);position:relative}
+    .hero:before{content:'01 / GAME DESIGN';position:absolute;right:0;top:89px;font-family:'Space Grotesk',sans-serif;letter-spacing:.16em;font-size:12px;color:#6b6c71}
+    h1,h2,h3,p{margin-top:0} h1,h2,h3{font-family:'Space Grotesk',Arial,sans-serif}
+    h1{font-size:clamp(68px,10vw,146px);line-height:.91;letter-spacing:-.085em;margin:22px 0 31px;font-weight:700}
+    .hero-desc{max-width:780px;font-size:clamp(17px,1.75vw,22px);line-height:1.5;color:#bebec1;letter-spacing:-.013em;margin-bottom:28px}
+    .tags{display:flex;gap:9px;flex-wrap:wrap}.tag{border:1px solid #45454a;border-radius:100px;color:#d0cdd0;font-size:11px;letter-spacing:.025em;padding:8px 12px}
+    .case{display:grid;grid-template-columns:minmax(310px,.9fr) minmax(0,1.16fr);column-gap:clamp(40px,6.3vw,94px);padding-top:62px}
+    .copy{min-width:0}.section{padding-bottom:43px;margin-bottom:42px;border-bottom:1px solid var(--line)}.section:last-child{border-bottom:0}
+    .section-label{color:var(--accent);font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:17px}
+    h2{font-size:clamp(24px,2.7vw,35px);letter-spacing:-.045em;line-height:1.15;margin-bottom:28px;font-weight:600}
+    .details{display:grid;grid-template-columns:105px 1fr;gap:15px 16px;font-size:15px;line-height:1.5}.details dt{color:#898a90}.details dd{margin:0;color:#e8e7e8}
+    .mechanic{display:grid;grid-template-columns:37px 1fr;gap:11px;margin-bottom:26px}.mechanic:last-child{margin-bottom:0}.number{color:var(--accent);font-family:'Space Grotesk';font-weight:600;font-size:13px;padding-top:3px}.mechanic h3{font-size:17px;line-height:1.3;letter-spacing:-.015em;margin-bottom:7px;font-weight:600}.mechanic p{color:#aeb0b5;line-height:1.62;font-size:14px;margin:0;max-width:360px}
+    .contrib{padding:0 0 0 18px;margin:0;color:#c6c6ca;line-height:1.65;font-size:14px}.contrib li{padding-left:6px;margin-bottom:15px}.contrib li::marker{color:var(--accent)}
+    .gallery{display:flex;flex-direction:column;gap:24px}.media{margin:0;position:relative}.media-visual{width:100%;aspect-ratio:1.68;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border:1px solid #313239;background:#181a1f}.media-visual img,.media-visual video{width:100%;height:100%;object-fit:cover;display:block}.media-visual:has(img[src=""]),.media-visual:has(video[src=""]){background:#222}
+    .media-visual::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 80% 15%,rgba(241,185,83,.12),transparent 40%);z-index:0}
+    .placeholder{z-index:1;text-align:center;padding:32px;color:#777980;display:flex;flex-direction:column;align-items:center;gap:12px}.placeholder svg{width:32px;height:32px;stroke:#b99b64;stroke-width:1.5;fill:none}.placeholder strong{font:600 15px 'Space Grotesk',sans-serif;color:#d2d1d1}.placeholder small{color:#898b91;font-size:12px;max-width:230px;line-height:1.5}
+    .media-visual.featured{aspect-ratio:1.68;border-color:#51442d}.featured-label{position:absolute;top:15px;left:15px;color:#ebc676;border:1px solid #675432;background:rgba(8,9,11,.85);font-size:10px;letter-spacing:.13em;padding:8px 10px;z-index:2}
+    figcaption{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-top:11px;color:#d1d0d2;font-size:12px}.media-counter{color:#76777d;font-size:11px;letter-spacing:.08em;white-space:nowrap}
+    .controller{aspect-ratio:1.68;background:linear-gradient(135deg,#2b241b,#171718 60%)}
+    .bottom{border-top:1px solid var(--line);margin-top:60px;padding-top:26px;display:flex;justify-content:space-between;gap:30px;color:#85868b;font-size:12px}.bottom a{color:var(--accent)}
+    .replace-note{font-size:12px;line-height:1.55;color:#777b83;padding:10px 0 0}
+    @media(max-width:850px){.page{padding:0 24px 70px}.topbar{height:72px}.hero{padding:60px 0 38px}.hero:before{display:none}.case{grid-template-columns:1fr;padding-top:38px;gap:22px}.copy{display:contents}.overview{order:0}.gallery{order:1}.mechanics{order:2}.contributions{order:3}.section{margin-bottom:20px;padding-bottom:28px}.gallery{gap:20px;margin-bottom:20px}.hero-desc{font-size:17px}h1{font-size:clamp(55px,14vw,90px);margin:20px 0 24px}.topbar nav{gap:16px}.details{grid-template-columns:95px 1fr}.bottom{flex-direction:column;gap:8px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  
+    /* Minimal video captions, keeping original image proportions */
+    .gallery figcaption{margin-top:10px;justify-content:flex-start;color:#c8c8ca;font-size:13px;letter-spacing:.005em;font-weight:500;}
+    .gallery .media-visual video{object-fit:cover;}
+    .gallery .media-visual.featured{border-color:#313239;}
+    .bottom{justify-content:flex-end;}
+    .section-label{display:none;}
+
+    /* Low-profile physical controller showcase: replaces the fourth video. */
+    .controller-showcase{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:10px}
+    .controller-item{min-width:0}
+    .controller-image{width:100%;aspect-ratio:1.55;overflow:hidden;background:#121315;border:1px solid #313239;border-radius:5px}
+    .controller-image img{width:100%;height:100%;display:block;object-fit:contain}
+    .controller-title{font-family:'Space Grotesk',Arial,sans-serif;font-size:12px;font-weight:600;line-height:1.4;color:#d8d7d8;margin-top:9px}
+    .controller-caption{font-size:11px;color:#8d8e93;line-height:1.5;margin-top:2px}
+    @media(max-width:390px){.controller-showcase{gap:10px}.controller-title{font-size:12px}.controller-caption{font-size:11px}}
+.media-visual video{display:block;width:100%;height:100%;object-fit:cover;}
+</style>
+<style>.topbar{height:94px}.topbar nav{display:flex;gap:44px}.topbar nav a{font-size:18px;font-weight:600;color:#aaa}.topbar nav a[aria-current="page"]{color:#fff;box-shadow:0 2px 0 var(--accent);padding-bottom:7px}.topbar .brand{font-size:22px}.empty-media{width:100%;height:100%;background:#151618}.media-visual:has(.empty-media)::before{display:none}@media(max-width:760px){.topbar{height:77px}.topbar nav{gap:15px}.topbar nav a{font-size:14px}.topbar .brand{font-size:17px}}@media(max-width:450px){.topbar nav{gap:11px}.topbar nav a{font-size:12px}}</style></head>
+<body>
+<div class="page">
+<header class="topbar"><a class="brand" href="about.html">JX<span style="color:var(--accent)">.</span> / Portfolio</a><nav><a href="about.html">About</a><a aria-current="page" href="projects.html">Projects</a><a href="contact.html">Contact</a></nav></header>
+<main id="top">
+<section class="hero">
+<div class="eyebrow">Selected Work <span style="color:#626267">/</span> Game Design</div>
+<h1>NightShift<span style="color:var(--accent)">.</span></h1>
+<p class="hero-desc">An asymmetric two-player horror game where one player monitors invading termites while the other assembles furniture and uses physical switches to defend the house.</p>
+<div class="tags"><span class="tag">Co-op Horror</span><span class="tag">Asymmetric Gameplay</span><span class="tag">Physical Interaction</span></div>
+</section>
+<div class="case" id="work">
+<div class="copy">
+<section class="section overview">
+<h2>Project Details</h2>
+<dl class="details"><dt>Role</dt><dd>Game Designer &amp; Artist</dd><dt>Team</dt><dd>5 people</dd><dt>Engine</dt><dd>Unity 6</dd><dt>Genre</dt><dd>Cooperative Horror / Puzzle</dd><dt>Duration</dt><dd>2 weeks</dd></dl>
+</section>
+<section class="section mechanics">
+<h2>Gameplay Mechanics</h2>
+<div class="mechanic"><div class="number">01</div><div><h3>Asymmetric Cooperation</h3><p>Two players take on different roles and must communicate to coordinate their actions.</p></div></div>
+<div class="mechanic"><div class="number">02</div><div><h3>Spatial Puzzle</h3><p>Players must strategically rearrange furniture to reach the correct door switch.</p></div></div>
+<div class="mechanic"><div class="number">03</div><div><h3>Escalating Threats</h3><p>Each wave introduces more termites attacking from different directions.</p></div></div>
+</section>
+<section class="section contributions">
+<h2>My contribution</h2>
+<ul class="contrib"><li>Contributed to asymmetric cooperative gameplay mechanics and physical-digital interactions.</li><li>Created termite character assets and animations using Maya.</li><li>Designed gameplay interfaces, visual feedback, and player guidance.</li><li>Developed a step-by-step tutorial to help players learn the mechanics and physical controls.</li></ul>
+</section>
+<div aria-label="Physical controllers" class="controller-showcase">
+<div class="controller-item">
+<div class="controller-image"><img alt="Player 1 camera controller" loading="lazy" src="assets/player1-controller.webp"/></div>
+<div class="controller-title">Player 1 Controller</div>
+<div class="controller-caption">Camera controls</div>
+</div>
+<div class="controller-item">
+<div class="controller-image"><img alt="Player 2 physical switch frame" loading="lazy" src="assets/player2-switch-frame.webp"/></div>
+<div class="controller-title">Player 2 Switch Frame</div>
+<div class="controller-caption">Physical door switches</div>
+</div>
+</div>
+</div>
+<div aria-label="NightShift project media" class="gallery">
+<figure class="media"><div class="media-visual featured"><video autoplay muted loop playsinline preload="metadata"><source src="assets/find-termites.mp4" type="video/mp4"></video></div><figcaption><span class="media-title">Find Termites</span></figcaption></figure>
+<figure class="media"><div class="media-visual"><video autoplay muted loop playsinline preload="metadata"><source src="assets/rearrange-furniture.mp4" type="video/mp4"></video></div><figcaption><span class="media-title">Rearrange Furniture</span></figcaption></figure>
+<figure class="media"><div class="media-visual controller"><video autoplay muted loop playsinline preload="metadata"><source src="assets/close-the-door.mp4" type="video/mp4"></video></div><figcaption><span class="media-title">Close the Door</span></figcaption></figure>
+</div>
+</div></main>
+<footer class="bottom"><span><a href="projects.html">← All Projects</a></span></footer>
+</div>
+</body>
+</html>

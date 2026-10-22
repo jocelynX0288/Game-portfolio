@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Lightbound — a VR puzzle adventure. Game design portfolio case study." name="description"/>
+<title>Lightbound — Game Design Portfolio</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+:root { --bg:#0c0d0e; --panel:#131518; --line:#303137; --muted:#a0a1a6; --text:#f2f0eb; --accent:#e9bd65; --soft:#d1d0d0; }
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--text);font-family:'DM Sans',Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none} a:focus-visible{outline:2px solid var(--accent);outline-offset:4px} button{font:inherit}
+.page{max-width:1450px;margin:auto;padding:0 6.2% 100px}
+.topbar{display:flex;align-items:center;justify-content:space-between;height:94px;border-bottom:1px solid #222428}
+.brand{font-family:'Space Grotesk',Arial,sans-serif;font-weight:700;letter-spacing:-.035em;font-size:22px}
+.topbar nav{display:flex;gap:44px}.topbar nav a{font-size:18px;font-weight:600;color:#aaa}.topbar nav a:hover{color:var(--accent)}.topbar nav a[aria-current="page"]{color:#fff;box-shadow:0 2px 0 var(--accent);padding-bottom:7px}
+.eyebrow{color:var(--accent);font-size:11px;letter-spacing:.23em;font-weight:700;text-transform:uppercase}
+.hero{padding:82px 0 56px;border-bottom:1px solid var(--line);position:relative}
+.hero:before{content:'01 / GAME DESIGN';position:absolute;right:0;top:89px;font-family:'Space Grotesk',sans-serif;letter-spacing:.16em;font-size:12px;color:#6b6c71}
+h1,h2,h3,p{margin-top:0} h1,h2,h3{font-family:'Space Grotesk',Arial,sans-serif}
+h1{font-size:clamp(68px,10vw,146px);line-height:.91;letter-spacing:-.085em;margin:22px 0 31px;font-weight:700}
+.hero-desc{max-width:780px;font-size:clamp(17px,1.75vw,22px);line-height:1.5;color:#bebec1;letter-spacing:-.013em;margin-bottom:28px}
+.tags{display:flex;gap:9px;flex-wrap:wrap}.tag{border:1px solid #45454a;border-radius:100px;color:#d0cdd0;font-size:11px;letter-spacing:.025em;padding:8px 12px}
+.case{display:grid;grid-template-columns:minmax(310px,.9fr) minmax(0,1.16fr);column-gap:clamp(40px,6.3vw,94px);padding-top:62px}
+.copy{min-width:0}.section{padding-bottom:43px;margin-bottom:42px;border-bottom:1px solid var(--line)}.section:last-child{border-bottom:0}
+h2{font-size:clamp(24px,2.7vw,35px);letter-spacing:-.045em;line-height:1.15;margin-bottom:28px;font-weight:600}
+.details{display:grid;grid-template-columns:105px 1fr;gap:15px 16px;font-size:15px;line-height:1.5}.details dt{color:#898a90}.details dd{margin:0;color:#e8e7e8}
+.mechanic{display:grid;grid-template-columns:37px 1fr;gap:11px;margin-bottom:26px}.mechanic:last-child{margin-bottom:0}.number{color:var(--accent);font-family:'Space Grotesk';font-weight:600;font-size:13px;padding-top:3px}.mechanic h3{font-size:17px;line-height:1.3;letter-spacing:-.015em;margin-bottom:7px;font-weight:600}.mechanic p{color:#aeb0b5;line-height:1.62;font-size:14px;margin:0;max-width:360px}
+.contrib{padding:0 0 0 18px;margin:0;color:#c6c6ca;line-height:1.65;font-size:14px}.contrib li{padding-left:6px;margin-bottom:15px}.contrib li::marker{color:var(--accent)}
+.gallery{display:flex;flex-direction:column;gap:24px}.media{margin:0;position:relative}.media-visual{width:100%;aspect-ratio:1.68;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border:1px solid #313239;background:#181a1f}.media-visual::before{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 80% 15%,rgba(241,185,83,.12),transparent 40%);z-index:0}.media-visual.featured{border-color:#51442d}.gallery figcaption{margin-top:10px;justify-content:flex-start;color:#c8c8ca;font-size:13px;letter-spacing:.005em;font-weight:500;display:flex}
+.empty-media{width:100%;height:100%;background:#151618;display:block}.torch-note{border-left:3px solid var(--accent);padding:2px 0 2px 15px;color:#aeb0b5;font-size:13px;line-height:1.6;margin-bottom:20px}.bottom{border-top:1px solid var(--line);margin-top:60px;padding-top:26px;display:flex;justify-content:flex-end;gap:30px;color:#85868b;font-size:12px}.bottom a{color:var(--accent)}
+@media(max-width:850px){.page{padding:0 24px 70px}.topbar{height:77px}.topbar nav{gap:15px}.topbar nav a{font-size:14px}.brand{font-size:17px}.hero{padding:60px 0 38px}.hero:before{display:none}.case{grid-template-columns:1fr;padding-top:38px;gap:22px}.section{margin-bottom:20px;padding-bottom:28px}.gallery{gap:20px;margin-bottom:20px}.hero-desc{font-size:17px}h1{font-size:clamp(55px,14vw,90px);margin:20px 0 24px}.details{grid-template-columns:95px 1fr}.bottom{flex-direction:column;gap:8px}}
+@media(max-width:450px){.topbar nav{gap:11px}.topbar nav a{font-size:12px}}
+.media-visual video{display:block;width:100%;height:100%;object-fit:cover;}
+</style></head>
+<body>
+<div class="page">
+<header class="topbar"><a class="brand" href="about.html">JX<span style="color:var(--accent)">.</span> / Portfolio</a><nav><a href="about.html">About</a><a aria-current="page" href="projects.html">Projects</a><a href="contact.html">Contact</a></nav></header>
+<main id="top">
+<section class="hero"><div class="eyebrow">Selected Work <span style="color:#626267">/</span> Game Design</div><h1>Lightbound<span style="color:var(--accent)">.</span></h1><p class="hero-desc">A VR puzzle adventure where players help a little fairy rescue her trapped parents from a mysterious cave by solving candle-lighting puzzles and fending off spiders.</p><div class="tags"><span class="tag">VR</span><span class="tag">Puzzle</span><span class="tag">Adventure</span></div></section>
+<div class="case" id="work">
+<div class="copy">
+<section class="section overview"><h2>Project Details</h2><dl class="details"><dt>Role</dt><dd>Game Designer &amp; Environment Artist</dd><dt>Platform</dt><dd>Meta Quest 3</dd><dt>Engine</dt><dd>Unity</dd><dt>Genre</dt><dd>VR Puzzle Adventure</dd></dl></section>
+<section class="section mechanics"><h2>Gameplay Mechanics</h2><div class="mechanic"><div class="number">01</div><div><h3>Light-Based Puzzles</h3><p>Follow glowing clues on the cave walls to identify and light the correct candles.</p></div></div><div class="mechanic"><div class="number">02</div><div><h3>Sequence Puzzles</h3><p>Light candles in the correct order to free the fairy’s father.</p></div></div><div class="mechanic"><div class="number">03</div><div><h3>Spider Defense</h3><p>Use candlelight to repel attacking spiders while solving puzzles.</p></div></div></section>
+<section class="section contributions"><h2>My contribution</h2><ul class="contrib"><li>Contributed to the design of candle-lighting puzzles and gameplay interactions.</li><li>Created the cave environment, including the cave structure, cages, and crystals.</li><li>Developed the cave’s visual atmosphere through lighting and HDRI environment design.</li></ul></section>
+<div class="torch-note"><strong style="color:#dedede">Torch Prop</strong><br/>The Quest controller fits inside a physical torch prop that players hold during the experience.</div>
+<figure class="media"><div class="media-visual"><img src="assets/torch-prop.png" alt="Physical torch prop" style="display:block;width:100%;height:100%;object-fit:contain" loading="lazy"></div></figure>
+</div>
+<div aria-label="Lightbound project media" class="gallery"><figure class="media"><div class="media-visual featured"><video autoplay muted loop playsinline preload="metadata"><source src="assets/light-candle.mp4" type="video/mp4"></video></div><figcaption>Light a Candle</figcaption></figure><figure class="media"><div class="media-visual"><video autoplay muted loop playsinline preload="metadata"><source src="assets/free-dad.mp4" type="video/mp4"></video></div><figcaption>Free Dad</figcaption></figure><figure class="media"><div class="media-visual"><video autoplay muted loop playsinline preload="metadata"><source src="assets/spider-attack.mp4" type="video/mp4"></video></div><figcaption>Spider Attack</figcaption></figure></div>
+</div></main>
+<footer class="bottom"><span><a href="projects.html">← All Projects</a></span></footer>
+</div></body></html>
